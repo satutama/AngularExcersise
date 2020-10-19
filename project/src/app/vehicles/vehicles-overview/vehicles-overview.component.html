@@ -1,0 +1,51 @@
+<form class="example-form" [formGroup]="searchForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Vehicles</mat-label>
+    <mat-spinner [diameter]="15" *ngIf="isFetchingTypes"></mat-spinner>
+    <mat-select matNativeControl formControlName="type">
+      <mat-option *ngFor="let type of types" [value]="type">
+        {{ type }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Brand</mat-label>
+    <mat-spinner [diameter]="15" *ngIf="isFetchingBrands"></mat-spinner>
+    <mat-select matNativeControl formControlName="brand">
+      <mat-option *ngFor="let brand of brands" [value]="brand">
+        {{ brand }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Colors</mat-label>
+    <mat-spinner [diameter]="15" *ngIf="isFetchingColors"></mat-spinner>
+    <mat-select matNativeControl formControlName="color">
+      <mat-option *ngFor="let color of colors" [value]="color">
+        {{ color }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="resetFields()">Reset</button>
+  <div class="form-error-message" *ngIf="fetchDataFailed">
+    <h3>Fetching data failed, please click reset</h3>
+  </div>
+</form>
+
+<div class="container" *ngIf="!fetchDataFailed">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <div *ngFor="let vehicle of vehicleList">
+    <div class="vehicle">
+      <div class="image-container">
+        <img [src]="vehicle.img" [alt]="vehicle.brand" onerror="this.src='../assets/images/broken-1.png';" />
+      </div>
+      <span> {{ vehicle.brand }}</span>
+    </div>
+  </div>
+  <div class="error-message" *ngIf="fetchingVehiclesError">
+    <h3>Sorry, we have an issue finding the correct vehicle for you. Please Try again.</h3>
+    <button mat-raised-button color="primary" (click)="updateVehicles(searchForm.value)">TryAgain</button>
+  </div>
+</div>

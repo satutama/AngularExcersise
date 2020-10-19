@@ -1,0 +1,68 @@
+form {
+  text-align: center;
+  mat-form-field {
+    mat-spinner {
+      float: right;
+      position: absolute;
+      right: 20px;
+      top: -5px;
+    }
+    padding: 12px;
+  }
+
+  &.mat-focused .mat-form-field-label {
+    color: white !important;
+  }
+
+  button {
+    height: 50px;
+    position: relative;
+    top: -7px;
+  }
+
+  .form-error-message {
+    color: red;
+  }
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 820px;
+  margin: 0 auto;
+  .image-container {
+    display: flex;
+    height: 150px;
+  }
+  mat-spinner {
+    position: relative;
+    top: 200px;
+  }
+  img {
+    width: "auto";
+    height: "auto";
+    max-width: 200px;
+    border-radius: 10px;
+  }
+  .vehicle {
+    display: flex;
+    max-width: 250px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    span {
+      font-size: 20px;
+      color: white;
+      padding: 10px;
+    }
+  }
+  .error-message {
+    position: relative;
+    top: 150px;
+    text-align: center;
+    color: whitesmoke;
+  }
+}

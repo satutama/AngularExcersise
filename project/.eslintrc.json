@@ -1,0 +1,56 @@
+{
+  "parser": "@typescript-eslint/parser", // Specifies the ESLint parser
+  "extends": [
+    "plugin:@typescript-eslint/recommended", // Uses the recommended rules from the @typescript-eslint/eslint-plugin
+    "prettier/@typescript-eslint", // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
+    "plugin:prettier/recommended" // Enables eslint-plugin-prettier and eslint-config-prettier. This will display prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2020, // Allows for the parsing of modern ECMAScript features
+    "sourceType": "module" // Allows for the use of imports
+  },
+  "rules": {
+    "@typescript-eslint/no-empty-function": ["error", { "allow": ["constructors", "functions", "methods"] }],
+    "no-console": "off",
+    "no-bitwise": 0,
+    "no-boolean-literal-compare": 0,
+    "no-consecutive-blank-lines": 0,
+    "no-duplicate-variable": 0,
+    "no-empty": 2,
+    "no-empty-interface": 0,
+    "no-eval": 0,
+    "no-input-rename": 0,
+    "no-inputs-metadata-property": 0,
+    "no-magic-numbers": 0,
+    "no-output-on-prefix": 0,
+    "no-output-rename": 0,
+    "no-outputs-metadata-property": 0,
+    "no-return-await": 0,
+    "no-shadowed-variable": 0,
+    "no-string-literal": 0,
+    "no-string-throw": 0,
+    "no-switch-case-fall-through": 0,
+    "no-unused-expression": 0,
+    "no-var-keyword": 0,
+    "object-literal-sort-keys": 0,
+    "ordered-imports": 0,
+    "prefer-const": 0,
+    "prefer-object-spread": 0,
+    "radix": 0,
+    "unified-signatures": 0,
+    "variable-name": 0,
+    "no-restricted-syntax": [
+      "error",
+      "debug",
+      "info",
+      "time",
+      "timeEnd",
+      "trace",
+      {
+        "selector": "CallExpression[callee.object.name='console'][callee.property.name!=/^(log|warn|error|info|trace)$/]",
+        "message": "Unexpected property on console object was called"
+      }
+    ]
+    // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
+  }
+}
